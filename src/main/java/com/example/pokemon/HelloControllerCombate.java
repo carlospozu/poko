@@ -18,6 +18,8 @@ public class HelloControllerCombate implements Initializable {
     PokemonMalo m4 = new PokemonMalo("Rayquaza", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\rayquaza.png"));
 
 
+
+
     @FXML
     Label nombrePokemon;
     @FXML
@@ -87,24 +89,25 @@ public class HelloControllerCombate implements Initializable {
                 vidaNumEnemy.setText(String.valueOf(m4.vida));
             }
         }
-
+/*
         if (HelloController.elegir1) {
-            Image fotobueno1 = new Image(m1.foto.toURI().toString());
-            PokemonMalo.setImage(fotobueno1);
-            nombreEnemy.setText(m4.nombre);
-            nivelEnemy.setText(String.valueOf(m4.nivel));
-            vidaEnemy.setProgress(m4.vidaRestante);
-            vidaNumEnemy.setText(String.valueOf(m4.vida));
+
         }
         if (HelloController.elegir2) {
-            Image fotobueno2 = new Image(m2.foto.toURI().toString());
-            PokemonMalo.setImage(fotobueno2);
-            nombreEnemy.setText(m4.nombre);
-            nivelEnemy.setText(String.valueOf(m4.nivel));
-            vidaEnemy.setProgress(m4.vidaRestante);
-            vidaNumEnemy.setText(String.valueOf(m4.vida));
-        }
 
+        }
+        if (HelloController.elegir3) {
+
+        if (HelloController.elegir4) {
+
+        }
+        if (HelloController.elegir5) {
+
+        }
+        if (HelloController.elegir6) {
+
+        }
+*/
 
 
     }
