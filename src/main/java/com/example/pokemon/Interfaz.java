@@ -12,7 +12,6 @@ public class Interfaz {
     ProgressBar vida;
     Label vidanum;
     Pokemon pokemon;
-
-    public Interfaz(Label nombre1, Label nivel1, ImageView foto1, ImageView sexo1, ProgressBar vida1, Label vidanum1, Pokemon p1) {
-    }
+    PokemonMalo pokemonMalo;
 }
+

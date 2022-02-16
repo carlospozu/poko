@@ -19,7 +19,14 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
-    //Creamos pokemons
+    static boolean elegir1 = false;
+    static boolean elegir2 = false;
+    static boolean elegir3 = false;
+    static boolean elegir4 = false;
+    static boolean elegir5 = false;
+    static boolean elegir6 = false;
+
+
     Pokemon p1 = new Pokemon("Gengar", 70, 90,80, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png ")) ;
     Pokemon p2 = new Pokemon("Machoke", 47, 59,59, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png")) ;
     Pokemon p3 = new Pokemon("Togepi", 50, 80,80, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\togepi.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"),new File("src\\main\\java\\com\\example\\pokemon\\fotos\\tegepiespalda.png")) ;
@@ -249,6 +256,15 @@ public void inicializar(Interfaz interfaz){
     vidanum1.setTextFill(Color.YELLOW);
     pokemon1.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
+    elegir1 = true;
+    elegir2 = false;
+    elegir3 = false;
+    elegir4 = false;
+    elegir5 = false;
+    elegir6 = false;
+
+
+
     }
 
     @FXML
@@ -284,6 +300,15 @@ public void inicializar(Interfaz interfaz){
         nivel2.setTextFill(Color.YELLOW);
         vidanum2.setTextFill(Color.YELLOW);
         pokemon2.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+
+        elegir1 = false;
+        elegir2 = true;
+        elegir3 = false;
+        elegir4 = false;
+        elegir5 = false;
+        elegir6 = false;
+
+
     }
 
     @FXML
@@ -321,6 +346,14 @@ public void inicializar(Interfaz interfaz){
         nivel3.setTextFill(Color.YELLOW);
         vidanum3.setTextFill(Color.YELLOW);
         pokemon3.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+
+        elegir1 = false;
+        elegir2 = false;
+        elegir3 = true;
+        elegir4 = false;
+        elegir5 = false;
+        elegir6 = false;
+
     }
 
     @FXML
@@ -356,6 +389,15 @@ public void inicializar(Interfaz interfaz){
         nivel4.setTextFill(Color.YELLOW);
         vidanum4.setTextFill(Color.YELLOW);
         pokemon4.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+
+        elegir1 = false;
+        elegir2 = false;
+        elegir3 = false;
+        elegir4 = true;
+        elegir5 = false;
+        elegir6 = false;
+
+
     }
 
     @FXML
@@ -392,6 +434,16 @@ public void inicializar(Interfaz interfaz){
         nivel5.setTextFill(Color.YELLOW);
         vidanum5.setTextFill(Color.YELLOW);
         pokemon5.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+
+
+        elegir1 = false;
+        elegir2 = false;
+        elegir3 = false;
+        elegir4 = false;
+        elegir5 = true;
+        elegir6 = false;
+
+
     }
 
     @FXML
@@ -428,6 +480,16 @@ public void inicializar(Interfaz interfaz){
         nivel6.setTextFill(Color.YELLOW);
         vidanum6.setTextFill(Color.YELLOW);
         pokemon6.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+
+
+        elegir1 = false;
+        elegir2 = false;
+        elegir3 = false;
+        elegir4 = false;
+        elegir5 = false;
+        elegir6 = true;
+
+
     }
     @FXML
     public void avanzar() throws IOException {
@@ -437,27 +499,6 @@ public void inicializar(Interfaz interfaz){
         Scene scene = new Scene(fxmlLoader.load(), 663, 400);
         stage.setScene(scene);
         stage.show();
-    }
-}
-
-
-class Pokemon{
-    String nombre;
-    Integer nivel;
-    Integer vida;
-    Integer vidaRestante;
-    File foto;
-    File sexo;
-    File fotodetras;
-
-    public Pokemon(String Nombre, Integer Nivel, Integer Vida, Integer VidaRestante, File foto, File sexo, File fotodetras){
-        this.nombre= Nombre;
-        this.nivel = Nivel;
-        this.vida = Vida;
-        this.vidaRestante = VidaRestante;
-        this.foto = foto;
-        this.sexo = sexo;
-        this.fotodetras = fotodetras;
     }
 }
 
