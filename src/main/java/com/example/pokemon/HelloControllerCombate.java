@@ -18,6 +18,7 @@ public class HelloControllerCombate implements Initializable {
     PokemonMalo m3 = new PokemonMalo("Gyarados", 90, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gyarados.png"));
     PokemonMalo m4 = new PokemonMalo("Rayquaza", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\rayquaza.png"));
 
+
     @FXML
     Label nombrePokemon;
     @FXML
@@ -54,11 +55,10 @@ public class HelloControllerCombate implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Image fotomalo = new Image(m1.foto.toURI().toString());
         PokemonMalo.setImage(fotomalo);
-        Image foto1 = new Image()
-
-
-
-
+        nombreEnemy.setText(m1.nombre);
+        nivelEnemy.setText(String.valueOf(m1.nivel));
+        vidaEnemy.setProgress(m1.vidaRestante);
+        vidaNumEnemy.setText(String.valueOf(m1.vida));
     }
 }
 
