@@ -11,11 +11,12 @@ import javax.swing.text.html.ImageView;
 import java.awt.*;
 import java.io.File;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
-public class HelloControllerCombate implements Initializable  {
+public class HelloControllerCombate  {
 
-    
+   public static Pokemon pokemonPagina1;
     PokemonMalo m1 = new PokemonMalo("Mewtwo", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mewtwo.png"));
     PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\draqonite.png"));
     PokemonMalo m3 = new PokemonMalo("Gyarados", 90, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gyarados.png"));
@@ -48,7 +49,7 @@ public class HelloControllerCombate implements Initializable  {
     
     
 
-
+/*
     public void inicializa(Interfaz interfaz) {
         interfaz.foto.setImage(new Image(interfaz.pokemonMalo.foto.toURI().toString()));
         interfaz.nombre.setText(interfaz.pokemonMalo.nombre);
@@ -57,9 +58,11 @@ public class HelloControllerCombate implements Initializable  {
         interfaz.vidanum.setText(interfaz.pokemonMalo.vida.toString());
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        int n = (int) (Math.random() * (5 - 1)) + 5;
+ */
+    @FXML
+    public void initialize() {
+        Random r = new Random();
+        int n = r. nextInt(5)+1;
 
         switch (n) {
             case 1 -> {
@@ -87,7 +90,7 @@ public class HelloControllerCombate implements Initializable  {
                 vidaNumEnemy.setText(String.valueOf(m3.vida));
             }
             case 4 -> {
-                Image fotomalo4 = new Image(m1.foto.toURI().toString());
+                Image fotomalo4 = new Image(m4.foto.toURI().toString());
                 PokemonMalo.setImage(fotomalo4);
                 nombreEnemy.setText(m4.nombre);
                 nivelEnemy.setText(String.valueOf(m4.nivel));
@@ -95,6 +98,8 @@ public class HelloControllerCombate implements Initializable  {
                 vidaNumEnemy.setText(String.valueOf(m4.vida));
             }
         }
+
+        var pokemonPagina1 = HelloControllerCombate.pokemonPagina1;
 /*
         if (HelloController.elegir1) {
 
@@ -114,11 +119,10 @@ public class HelloControllerCombate implements Initializable  {
 
         }
 */
-
-
     }
 
     public void ataque(MouseEvent mouseEvent) {
+
     }
 
     public void curar(MouseEvent mouseEvent) {
@@ -141,6 +145,12 @@ public class HelloControllerCombate implements Initializable  {
 
     public void continuarBoton(MouseEvent mouseEvent) {
     }
+
+    public void pokemonPasado(Pokemon pokemon){
+        pokemon=pokemonPagina1;
+    }
+
 }
+
 
 

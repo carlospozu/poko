@@ -18,18 +18,15 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class HelloController {
 
-    static boolean elegir1 = false;
-    static boolean elegir2 = false;
-    static boolean elegir3 = false;
-    static boolean elegir4 = false;
-    static boolean elegir5 = false;
-    static boolean elegir6 = false;
 
+
+    Pokemon pokemonSeleccionado;
 
     Pokemon p1 = new Pokemon("Gengar", 70, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png ")) ;
     Pokemon p2 = new Pokemon("Machoke", 47, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png")) ;
@@ -146,7 +143,7 @@ public class HelloController implements Initializable {
 
 
 
-
+/*
 public void inicializar(Interfaz interfaz){
     interfaz.foto.setImage(new Image(interfaz.pokemon.foto.toURI().toString()));
     interfaz.sexo.setImage(new Image(interfaz.pokemon.sexo.toURI().toString()));
@@ -155,9 +152,9 @@ public void inicializar(Interfaz interfaz){
     interfaz.vida.setProgress((double)interfaz.pokemon.vidaRestante/interfaz.pokemon.vida);
     interfaz.vidanum.setText(interfaz.pokemon.vida.toString());
 }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+*/
+    @FXML
+    public void initialize() {
       /*  ArrayList lista = new ArrayList();
         lista.add(new Interfaz(nombre1, nivel1, foto1, sexo1, vida1, vidanum1, p1));
         lista.add(new Interfaz(nombre2, nivel2, foto2, sexo2, vida2, vidanum2, p2));
@@ -171,6 +168,7 @@ public void inicializar(Interfaz interfaz){
         }
 
 */
+
 
         Image imagen1 = new Image(p1.foto.toURI().toString());
         Image imagen2 = new Image(p1.sexo.toURI().toString());
@@ -260,12 +258,7 @@ public void inicializar(Interfaz interfaz){
     vidanum1.setTextFill(Color.YELLOW);
     pokemon1.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-    elegir1 = true;
-    elegir2 = false;
-    elegir3 = false;
-    elegir4 = false;
-    elegir5 = false;
-    elegir6 = false;
+        pokemonSeleccionado=p1;
 
 
 
@@ -305,12 +298,7 @@ public void inicializar(Interfaz interfaz){
         vidanum2.setTextFill(Color.YELLOW);
         pokemon2.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-        elegir1 = false;
-        elegir2 = true;
-        elegir3 = false;
-        elegir4 = false;
-        elegir5 = false;
-        elegir6 = false;
+        pokemonSeleccionado=p2;
 
 
     }
@@ -351,12 +339,7 @@ public void inicializar(Interfaz interfaz){
         vidanum3.setTextFill(Color.YELLOW);
         pokemon3.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-        elegir1 = false;
-        elegir2 = false;
-        elegir3 = true;
-        elegir4 = false;
-        elegir5 = false;
-        elegir6 = false;
+       pokemonSeleccionado=p3;
 
     }
 
@@ -394,12 +377,7 @@ public void inicializar(Interfaz interfaz){
         vidanum4.setTextFill(Color.YELLOW);
         pokemon4.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-        elegir1 = false;
-        elegir2 = false;
-        elegir3 = false;
-        elegir4 = true;
-        elegir5 = false;
-        elegir6 = false;
+        pokemonSeleccionado=p4;
 
 
     }
@@ -440,13 +418,7 @@ public void inicializar(Interfaz interfaz){
         pokemon5.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
 
-        elegir1 = false;
-        elegir2 = false;
-        elegir3 = false;
-        elegir4 = false;
-        elegir5 = true;
-        elegir6 = false;
-
+       pokemonSeleccionado=p5;
 
     }
 
@@ -486,32 +458,31 @@ public void inicializar(Interfaz interfaz){
         pokemon6.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
 
-        elegir1 = false;
-        elegir2 = false;
-        elegir3 = false;
-        elegir4 = false;
-        elegir5 = false;
-        elegir6 = true;
-
+       pokemonSeleccionado=p6;
 
     }
     @FXML
     public void avanzar() throws IOException {
-        Stage stage = new Stage();
+      /*  Stage stage = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Ventana2.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        HelloControllerCombate v=
+        v.setPokemon(pokemonSeleccionado);*/
 
 
 
 
-       /* Stage stage = new Stage();
+        Stage stage = new Stage();
         stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Ventana2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ventana2.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 663, 400);
         stage.setScene(scene);
-        stage.show();*/
+        stage.show();
+        HelloControllerCombate v=fxmlLoader.load();
+
+        v.pokemonPasado(pokemonSeleccionado);
 
 }
 
