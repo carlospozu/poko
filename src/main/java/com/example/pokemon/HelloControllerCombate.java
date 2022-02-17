@@ -60,7 +60,7 @@ public class HelloControllerCombate  {
 
  */
     @FXML
-    public void initialize() {
+    public void inicializar(Pokemon pokemonSeleccionado) {
         Random r = new Random();
         int n = r. nextInt(5)+1;
 
@@ -99,7 +99,7 @@ public class HelloControllerCombate  {
             }
         }
 
-        var pokemonPagina1 = HelloControllerCombate.pokemonPagina1;
+
 /*
         if (HelloController.elegir1) {
 

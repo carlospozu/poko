@@ -482,7 +482,7 @@ public void inicializar(Interfaz interfaz){
         stage.show();
         HelloControllerCombate v=fxmlLoader.load();
 
-        v.pokemonPasado(pokemonSeleccionado);
+        v.inicializar(pokemonSeleccionado);
 
 }
 
