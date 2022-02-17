@@ -4,14 +4,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+
 import javax.swing.text.html.ImageView;
 import java.awt.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloControllerCombate implements Initializable {
+public class HelloControllerCombate implements Initializable  {
 
+    
     PokemonMalo m1 = new PokemonMalo("Mewtwo", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mewtwo.png"));
     PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\draqonite.png"));
     PokemonMalo m3 = new PokemonMalo("Gyarados", 90, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gyarados.png"));
@@ -21,26 +25,28 @@ public class HelloControllerCombate implements Initializable {
 
 
     @FXML
-    Label nombrePokemon;
+    javafx.scene.control.Label nombrePokemon;
     @FXML
-    Label nivelPokemon;
+    javafx.scene.control.Label nivelPokemon;
     @FXML
     ProgressBar vidaPokemon;
     @FXML
-    Label vidaNumPokemon;
+    javafx.scene.control.Label vidaNumPokemon;
     @FXML
-    ImageView pokemonBueno;
+    javafx.scene.image.ImageView pokemonBueno;
 
     @FXML
-    Label nombreEnemy;
+    javafx.scene.control.Label nombreEnemy;
     @FXML
-    Label nivelEnemy;
+    javafx.scene.control.Label nivelEnemy;
     @FXML
-    Label vidaNumEnemy;
+    javafx.scene.control.Label vidaNumEnemy;
     @FXML
     ProgressBar vidaEnemy;
     @FXML
     javafx.scene.image.ImageView PokemonMalo;
+    
+    
 
 
     public void inicializa(Interfaz interfaz) {
@@ -112,6 +118,29 @@ public class HelloControllerCombate implements Initializable {
 
     }
 
+    public void ataque(MouseEvent mouseEvent) {
+    }
+
+    public void curar(MouseEvent mouseEvent) {
+    }
+
+    public void atacarSeguro(MouseEvent mouseEvent) {
+    }
+
+    public void atacarArriesgado(MouseEvent mouseEvent) {
+    }
+
+    public void atacarMuyArriesgado(MouseEvent mouseEvent) {
+    }
+
+    public void cancelar(MouseEvent mouseEvent) {
+    }
+
+    public void salirBoton(MouseEvent mouseEvent) {
+    }
+
+    public void continuarBoton(MouseEvent mouseEvent) {
+    }
 }
 
 

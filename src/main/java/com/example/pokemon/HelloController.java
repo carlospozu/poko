@@ -3,18 +3,22 @@ package com.example.pokemon;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -27,11 +31,11 @@ public class HelloController implements Initializable {
     static boolean elegir6 = false;
 
 
-    Pokemon p1 = new Pokemon("Gengar", 70, 90,80, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png ")) ;
-    Pokemon p2 = new Pokemon("Machoke", 47, 59,59, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png")) ;
-    Pokemon p3 = new Pokemon("Togepi", 50, 80,80, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\togepi.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"),new File("src\\main\\java\\com\\example\\pokemon\\fotos\\tegepiespalda.png")) ;
-    Pokemon p4 = new Pokemon("Mr.Mine", 68, 23,23, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmine.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmimeespalda.png")) ;
-    Pokemon p5 = new Pokemon("Caterpie", 5, 12,12, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpie.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpieespalda.png")) ;
+    Pokemon p1 = new Pokemon("Gengar", 70, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png ")) ;
+    Pokemon p2 = new Pokemon("Machoke", 47, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png")) ;
+    Pokemon p3 = new Pokemon("Togepi", 50, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\togepi.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"),new File("src\\main\\java\\com\\example\\pokemon\\fotos\\tegepiespalda.png")) ;
+    Pokemon p4 = new Pokemon("Mr.Mine", 68, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmine.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmimeespalda.png")) ;
+    Pokemon p5 = new Pokemon("Caterpie", 5, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpie.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpieespalda.png")) ;
     Pokemon p6 = new Pokemon("Jynx", 85, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynx.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynxespalda.png")) ;
 
     //Pokemon1
@@ -494,12 +498,27 @@ public void inicializar(Interfaz interfaz){
     @FXML
     public void avanzar() throws IOException {
         Stage stage = new Stage();
-        stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ventana2.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 663, 400);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Ventana2.fxml")));
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+
+
+
+
+       /* Stage stage = new Stage();
+        stage.setResizable(false);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Ventana2.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 663, 400);
+        stage.setScene(scene);
+        stage.show();*/
+
 }
+
+    ;
+
+
+    }
+
 
 
