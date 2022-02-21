@@ -108,7 +108,8 @@ Pokemon pokemonSeleccionado;
         vidaNumPokemon.setText(String.valueOf(pokemonSeleccionado.vidaRestante));
         ataques.setVisible(false);
 
-
+        Image fondo1 = new Image("src/main/java/com/example/pokemon/fotos/fondo.png");
+        fondo.setImage(fondo1);
     }
 
     public void ataque() {
@@ -125,6 +126,7 @@ Pokemon pokemonSeleccionado;
         }
         vidaBarra= (life/pokemonSeleccionado.vida);
         vidaPokemon.setProgress(vidaBarra);
+        vidaNumPokemon.setText(String.valueOf(life));
 
         Random h = new Random();
         int b = h. nextInt(76)+25;
@@ -134,6 +136,7 @@ Pokemon pokemonSeleccionado;
         }
         vidaBarraMalo= (lifeMalo/aleatorio.vida);
         vidaEnemy.setProgress(vidaBarraMalo);
+        vidaNumEnemy.setText(String.valueOf(lifeMalo));
 
     }
 
@@ -142,10 +145,12 @@ Pokemon pokemonSeleccionado;
             lifeMalo = lifeMalo-20;
             vidaBarraMalo= (lifeMalo/aleatorio.vida);
             vidaEnemy.setProgress(vidaBarraMalo);
+            vidaNumEnemy.setText(String.valueOf(lifeMalo));
             if (lifeMalo>0){
                 life = life-20;
                 vidaBarra= (life/pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
+                vidaNumPokemon.setText(String.valueOf(life));
             }
             else {
                 menu();
@@ -161,13 +166,14 @@ Pokemon pokemonSeleccionado;
             lifeMalo = lifeMalo-a;
             vidaBarraMalo= (lifeMalo/aleatorio.vida);
             vidaEnemy.setProgress(vidaBarraMalo);
+            vidaNumEnemy.setText(String.valueOf(lifeMalo));
             if (lifeMalo>0){
                 Random d = new Random();
                 int b = d. nextInt(26)+10;
                 life = life-b;
                 vidaBarra= (life/pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
-
+                vidaNumPokemon.setText(String.valueOf(life));
             }
             else {
                 menu();
@@ -183,12 +189,14 @@ Pokemon pokemonSeleccionado;
             lifeMalo = lifeMalo-a;
             vidaBarraMalo= (lifeMalo/aleatorio.vida);
             vidaEnemy.setProgress(vidaBarraMalo);
+            vidaNumEnemy.setText(String.valueOf(lifeMalo));
             if (lifeMalo>0){
                 Random f = new Random();
                 int b = f. nextInt(51);
                 life = life-b;
                 vidaBarra= (life/pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
+                vidaNumPokemon.setText(String.valueOf((life)));
             }
             else {
                 menu();
