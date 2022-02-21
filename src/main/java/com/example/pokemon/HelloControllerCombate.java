@@ -14,19 +14,20 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Random;
 
 
-public class HelloControllerCombate  {
+public class HelloControllerCombate {
 
-   public static Pokemon pokemonPagina1;
+    public static Pokemon pokemonPagina1;
     public Label curar;
     public Label atacar;
 
-
+    Foto foto = new Foto(new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fondo.png"));
     PokemonMalo aleatorio;
     PokemonMalo m1 = new PokemonMalo("Mewtwo", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mewtwo.png"));
-    PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\draqonite.png"));
+    PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\dragonite.png"));
     PokemonMalo m3 = new PokemonMalo("Gyarados", 90, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gyarados.png"));
     PokemonMalo m4 = new PokemonMalo("Rayquaza", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\rayquaza.jpg"));
 
@@ -70,16 +71,15 @@ public class HelloControllerCombate  {
     AnchorPane menuSalir;
 
 
-
-Pokemon pokemonSeleccionado;
+    Pokemon pokemonSeleccionado;
 
     @FXML
     public void initialize(Pokemon pokemonSeleccionado) {
 
 
-        this.pokemonSeleccionado=pokemonSeleccionado;
+        this.pokemonSeleccionado = pokemonSeleccionado;
         Random r = new Random();
-        int n = r. nextInt(5)+1;
+        int n = r.nextInt(5) + 1;
 
 
         switch (n) {
@@ -90,7 +90,7 @@ Pokemon pokemonSeleccionado;
         }
 
         lifeMalo = aleatorio.vidaRestante;
-        vidaBarraMalo = (lifeMalo/aleatorio.vida);
+        vidaBarraMalo = (lifeMalo / aleatorio.vida);
         Image fotomalo = new Image(aleatorio.foto.toURI().toString());
         PokemonMalo.setImage(fotomalo);
         nombreEnemy.setText(aleatorio.nombre);
@@ -99,7 +99,7 @@ Pokemon pokemonSeleccionado;
         vidaNumEnemy.setText(String.valueOf(aleatorio.vida));
 
         life = pokemonSeleccionado.vidaRestante;
-        vidaBarra= (life/pokemonSeleccionado.vida);
+        vidaBarra = (life / pokemonSeleccionado.vida);
         Image fotobueno = new Image(pokemonSeleccionado.fotodetras.toURI().toString());
         pokemonBueno.setImage(fotobueno);
         nombrePokemon.setText(pokemonSeleccionado.nombre);
@@ -108,8 +108,10 @@ Pokemon pokemonSeleccionado;
         vidaNumPokemon.setText(String.valueOf(pokemonSeleccionado.vidaRestante));
         ataques.setVisible(false);
 
-        Image fondo1 = new Image("src/main/java/com/example/pokemon/fotos/fondo.png");
-        fondo.setImage(fondo1);
+        Image image = new Image(foto.foto.toURI().toString());
+        fondo.setImage(image);
+
+
     }
 
     public void ataque() {
@@ -119,40 +121,39 @@ Pokemon pokemonSeleccionado;
 
     public void curar(MouseEvent mouseEvent) {
         Random g = new Random();
-        int a = g. nextInt(76)+25;
-        life = life+a;
-        if (life>pokemonSeleccionado.vida){
+        int a = g.nextInt(76) + 25;
+        life = life + a;
+        if (life > pokemonSeleccionado.vida) {
             life = pokemonSeleccionado.vida;
         }
-        vidaBarra= (life/pokemonSeleccionado.vida);
+        vidaBarra = (life / pokemonSeleccionado.vida);
         vidaPokemon.setProgress(vidaBarra);
         vidaNumPokemon.setText(String.valueOf(life));
 
         Random h = new Random();
-        int b = h. nextInt(76)+25;
-        lifeMalo = lifeMalo+b;
-        if (lifeMalo>aleatorio.vida){
+        int b = h.nextInt(76) + 25;
+        lifeMalo = lifeMalo + b;
+        if (lifeMalo > aleatorio.vida) {
             lifeMalo = aleatorio.vida;
         }
-        vidaBarraMalo= (lifeMalo/aleatorio.vida);
+        vidaBarraMalo = (lifeMalo / aleatorio.vida);
         vidaEnemy.setProgress(vidaBarraMalo);
         vidaNumEnemy.setText(String.valueOf(lifeMalo));
 
     }
 
     public void atacarSeguro(MouseEvent mouseEvent) {
-        if (!(lifeMalo <= 0 || life <= 0)){
-            lifeMalo = lifeMalo-20;
-            vidaBarraMalo= (lifeMalo/aleatorio.vida);
+        if (!(lifeMalo <= 0 || life <= 0)) {
+            lifeMalo = lifeMalo - 20;
+            vidaBarraMalo = (lifeMalo / aleatorio.vida);
             vidaEnemy.setProgress(vidaBarraMalo);
             vidaNumEnemy.setText(String.valueOf(lifeMalo));
-            if (lifeMalo>0){
-                life = life-20;
-                vidaBarra= (life/pokemonSeleccionado.vida);
+            if (lifeMalo > 0) {
+                life = life - 20;
+                vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
-            }
-            else {
+            } else {
                 menu();
             }
         }
@@ -160,22 +161,21 @@ Pokemon pokemonSeleccionado;
     }
 
     public void atacarArriesgado(MouseEvent mouseEvent) {
-        if (!(lifeMalo <= 0 || life <= 0)){
+        if (!(lifeMalo <= 0 || life <= 0)) {
             Random c = new Random();
-            int a = c. nextInt(26)+10;
-            lifeMalo = lifeMalo-a;
-            vidaBarraMalo= (lifeMalo/aleatorio.vida);
+            int a = c.nextInt(26) + 10;
+            lifeMalo = lifeMalo - a;
+            vidaBarraMalo = (lifeMalo / aleatorio.vida);
             vidaEnemy.setProgress(vidaBarraMalo);
             vidaNumEnemy.setText(String.valueOf(lifeMalo));
-            if (lifeMalo>0){
+            if (lifeMalo > 0) {
                 Random d = new Random();
-                int b = d. nextInt(26)+10;
-                life = life-b;
-                vidaBarra= (life/pokemonSeleccionado.vida);
+                int b = d.nextInt(26) + 10;
+                life = life - b;
+                vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
-            }
-            else {
+            } else {
                 menu();
             }
         }
@@ -183,22 +183,21 @@ Pokemon pokemonSeleccionado;
     }
 
     public void atacarMuyArriesgado(MouseEvent mouseEvent) {
-        if (!(lifeMalo <= 0 || life <= 0)){
+        if (!(lifeMalo <= 0 || life <= 0)) {
             Random e = new Random();
-            int a = e. nextInt(51);
-            lifeMalo = lifeMalo-a;
-            vidaBarraMalo= (lifeMalo/aleatorio.vida);
+            int a = e.nextInt(51);
+            lifeMalo = lifeMalo - a;
+            vidaBarraMalo = (lifeMalo / aleatorio.vida);
             vidaEnemy.setProgress(vidaBarraMalo);
             vidaNumEnemy.setText(String.valueOf(lifeMalo));
-            if (lifeMalo>0){
+            if (lifeMalo > 0) {
                 Random f = new Random();
-                int b = f. nextInt(51);
-                life = life-b;
-                vidaBarra= (life/pokemonSeleccionado.vida);
+                int b = f.nextInt(51);
+                life = life - b;
+                vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf((life)));
-            }
-            else {
+            } else {
                 menu();
             }
         }
@@ -223,25 +222,27 @@ Pokemon pokemonSeleccionado;
         stage.setResizable(false);
     }
 
-    public void pokemonPasado(HelloController helloController){
+    public void pokemonPasado(HelloController helloController) {
         Pokemon pokemon = pokemonPagina1;
     }
 
-    public void menu(){
+    public void menu() {
         menuSalir.setVisible(true);
-        if (lifeMalo<=0){
+        if (lifeMalo <= 0) {
             Image fotomuerto = new Image(aleatorio.foto.toURI().toString());
             fotoMuerto.setImage(fotomuerto);
             nombreMuerto.setText(aleatorio.nombre);
-        }
-        else{
+        } else {
             Image fotomuerto1 = new Image(pokemonSeleccionado.foto.toURI().toString());
             fotoMuerto.setImage(fotomuerto1);
             nombreMuerto.setText(pokemonSeleccionado.nombre);
         }
     }
-
 }
+
+
+
+
 
 
 
