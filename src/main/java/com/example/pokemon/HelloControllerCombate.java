@@ -47,11 +47,13 @@ public class HelloControllerCombate  {
     ProgressBar vidaEnemy;
     @FXML
     ImageView PokemonMalo;
+    @FXML
+    ImageView fondo;
     
     
 
 /*
-    public void inicializa(Interfaz interfaz) {
+    public void inicializa(HelloController interfaz) {
         interfaz.foto.setImage(new Image(interfaz.pokemonMalo.foto.toURI().toString()));
         interfaz.nombre.setText(interfaz.pokemonMalo.nombre);
         interfaz.nivel.setText(interfaz.pokemonMalo.nivel.toString());
@@ -60,8 +62,15 @@ public class HelloControllerCombate  {
     }
 
  */
+
+
+
+
     @FXML
-    public void inicializar(Pokemon pokemonSeleccionado) {
+    public void initialize(Pokemon pokemonSeleccionado) {
+
+
+
         Random r = new Random();
         int n = r. nextInt(5)+1;
         System.out.println("holaaa");
@@ -121,33 +130,13 @@ public class HelloControllerCombate  {
         vidaEnemy.setProgress(aleatorio.vidaRestante);
         vidaNumEnemy.setText(String.valueOf(aleatorio.vida));
 
+        Image fotobueno = new Image(pokemonSeleccionado.fotodetras.toURI().toString());
+        pokemonBueno.setImage(fotobueno);
+        nombrePokemon.setText(pokemonSeleccionado.nombre);
+        nivelPokemon.setText(String.valueOf(pokemonSeleccionado.nivel));
+        vidaPokemon.setProgress(pokemonSeleccionado.vidaRestante);
+        vidaNumPokemon.setText(String.valueOf(pokemonSeleccionado.vida));
 
-        Image fotobueno = new Image(pokemonSeleccionado.foto.toURI().toString());
-        PokemonMalo.setImage(fotobueno);
-        nombreEnemy.setText(pokemonSeleccionado.nombre);
-        nivelEnemy.setText(String.valueOf(pokemonSeleccionado.nivel));
-        vidaEnemy.setProgress(pokemonSeleccionado.vidaRestante);
-        vidaNumEnemy.setText(String.valueOf(pokemonSeleccionado.vida));
-
-/*
-        if (HelloController.elegir1) {
-
-        }
-        if (HelloController.elegir2) {
-
-        }
-        if (HelloController.elegir3) {
-
-        if (HelloController.elegir4) {
-
-        }
-        if (HelloController.elegir5) {
-
-        }
-        if (HelloController.elegir6) {
-
-        }
-*/
     }
 
     public void ataque(MouseEvent mouseEvent) {
@@ -175,7 +164,7 @@ public class HelloControllerCombate  {
     public void continuarBoton(MouseEvent mouseEvent) {
     }
 
-    public void pokemonPasado(){
+    public void pokemonPasado(HelloController helloController){
         Pokemon pokemon = pokemonPagina1;
     }
 

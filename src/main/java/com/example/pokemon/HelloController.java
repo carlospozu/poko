@@ -2,22 +2,17 @@ package com.example.pokemon;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-
-
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
+
 
 
 public class HelloController {
@@ -340,33 +335,33 @@ public class HelloController {
 
     @FXML
     public void avanzar() throws IOException {
-       /* Stage stage = new Stage();
+     /*  Stage stage = new Stage();
          AnchorPane root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Ventana2.fxml")));
          Scene scene = new Scene(root);
          stage.setScene(scene);
          stage.show();
+      */
 
-      HelloControllerCombate v = new HelloControllerCombate();
-        v.inicializar(pokemonSeleccionado);
-
-        */
-
-
-
-/*
-
+        /*
         Stage stage = new Stage();
         stage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("/com/example/pokemon/Ventana2.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 663, 400);
         stage.setScene(scene);
         stage.show();
-
         HelloControllerCombate v=fxmlLoader.getController();
-
         v.inicializar(pokemonSeleccionado);
-
  */
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Ventana2.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 663, 400);
+        stage.setTitle("ESCOGE POKEMON");
+        stage.setScene(scene);
+        stage.show();
+        stage.setResizable(false);
+        HelloControllerCombate v=fxmlLoader.getController();
+        v.initialize(pokemonSeleccionado);
+        v.pokemonPasado(this);
 
     }
 }
