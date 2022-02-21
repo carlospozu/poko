@@ -13,7 +13,7 @@
    </padding>
    <Label fx:id="continuar" disable="true" layoutX="20.0" layoutY="369.0" onMouseClicked="#avanzar"
           text="ELEGIR POKEMON" textFill="#f5f5f5"/>
-   <Label fx:id="salir" layoutX="589.0" layoutY="369.0" text="SALIR" textFill="#fcfcfc"/>
+   <Label  layoutX="589.0" layoutY="369.0" text="SALIR" textFill="#fcfcfc"/>
    <GridPane layoutY="29.0" prefHeight="340.0" prefWidth="663.0" style="-fx-background-color: #339FFF;">
       <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>

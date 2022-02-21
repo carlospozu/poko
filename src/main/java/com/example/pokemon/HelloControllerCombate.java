@@ -1,22 +1,23 @@
 package com.example.pokemon;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-
-import javax.swing.text.html.ImageView;
-import java.awt.*;
+import javafx.scene.image.ImageView;
 import java.io.File;
-import java.net.URL;
 import java.util.Random;
-import java.util.ResourceBundle;
+
 
 public class HelloControllerCombate  {
 
    public static Pokemon pokemonPagina1;
+    public Label curar;
+    public Label atacar;
+
+    PokemonMalo aleatorio;
     PokemonMalo m1 = new PokemonMalo("Mewtwo", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mewtwo.png"));
     PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\draqonite.png"));
     PokemonMalo m3 = new PokemonMalo("Gyarados", 90, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gyarados.png"));
@@ -26,26 +27,26 @@ public class HelloControllerCombate  {
 
 
     @FXML
-    javafx.scene.control.Label nombrePokemon;
+    Label nombrePokemon;
     @FXML
-    javafx.scene.control.Label nivelPokemon;
+    Label nivelPokemon;
     @FXML
     ProgressBar vidaPokemon;
     @FXML
-    javafx.scene.control.Label vidaNumPokemon;
+    Label vidaNumPokemon;
     @FXML
-    javafx.scene.image.ImageView pokemonBueno;
+    ImageView pokemonBueno;
 
     @FXML
-    javafx.scene.control.Label nombreEnemy;
+    Label nombreEnemy;
     @FXML
-    javafx.scene.control.Label nivelEnemy;
+    Label nivelEnemy;
     @FXML
-    javafx.scene.control.Label vidaNumEnemy;
+    Label vidaNumEnemy;
     @FXML
     ProgressBar vidaEnemy;
     @FXML
-    javafx.scene.image.ImageView PokemonMalo;
+    ImageView PokemonMalo;
     
     
 
@@ -63,42 +64,70 @@ public class HelloControllerCombate  {
     public void inicializar(Pokemon pokemonSeleccionado) {
         Random r = new Random();
         int n = r. nextInt(5)+1;
+        System.out.println("holaaa");
 
         switch (n) {
             case 1 -> {
+                aleatorio = m1;
+                /*
                 Image fotomalo1 = new Image(m1.foto.toURI().toString());
                 PokemonMalo.setImage(fotomalo1);
                 nombreEnemy.setText(m1.nombre);
                 nivelEnemy.setText(String.valueOf(m1.nivel));
                 vidaEnemy.setProgress(m1.vidaRestante);
                 vidaNumEnemy.setText(String.valueOf(m1.vida));
+                */
             }
             case 2 -> {
+                aleatorio = m2;
+                /*
                 Image fotomalo2 = new Image(m2.foto.toURI().toString());
                 PokemonMalo.setImage(fotomalo2);
                 nombreEnemy.setText(m2.nombre);
                 nivelEnemy.setText(String.valueOf(m2.nivel));
                 vidaEnemy.setProgress(m2.vidaRestante);
                 vidaNumEnemy.setText(String.valueOf(m2.vida));
+                 */
             }
             case 3 -> {
+                aleatorio = m3;
+                /*
                 Image fotomalo3 = new Image(m3.foto.toURI().toString());
                 PokemonMalo.setImage(fotomalo3);
                 nombreEnemy.setText(m3.nombre);
                 nivelEnemy.setText(String.valueOf(m3.nivel));
                 vidaEnemy.setProgress(m3.vidaRestante);
                 vidaNumEnemy.setText(String.valueOf(m3.vida));
+                 */
             }
             case 4 -> {
+                aleatorio = m4;
+                /*
                 Image fotomalo4 = new Image(m4.foto.toURI().toString());
                 PokemonMalo.setImage(fotomalo4);
                 nombreEnemy.setText(m4.nombre);
                 nivelEnemy.setText(String.valueOf(m4.nivel));
                 vidaEnemy.setProgress(m4.vidaRestante);
                 vidaNumEnemy.setText(String.valueOf(m4.vida));
+                 */
             }
         }
 
+
+        Image fotomalo = new Image(aleatorio.foto.toURI().toString());
+        PokemonMalo.setImage(fotomalo);
+        nombreEnemy.setText(aleatorio.nombre);
+        nivelEnemy.setText(String.valueOf(aleatorio.nivel));
+        vidaEnemy.setProgress(aleatorio.vidaRestante);
+        vidaNumEnemy.setText(String.valueOf(aleatorio.vida));
+
+
+        Image fotobueno = new Image(pokemonSeleccionado.foto.toURI().toString());
+        PokemonMalo.setImage(fotobueno);
+        nombreEnemy.setText(pokemonSeleccionado.nombre);
+        nivelEnemy.setText(String.valueOf(pokemonSeleccionado.nivel));
+        vidaEnemy.setProgress(pokemonSeleccionado.vidaRestante);
+        vidaNumEnemy.setText(String.valueOf(pokemonSeleccionado.vida));
 
 /*
         if (HelloController.elegir1) {
@@ -146,8 +175,8 @@ public class HelloControllerCombate  {
     public void continuarBoton(MouseEvent mouseEvent) {
     }
 
-    public void pokemonPasado(Pokemon pokemon){
-        pokemon=pokemonPagina1;
+    public void pokemonPasado(){
+        Pokemon pokemon = pokemonPagina1;
     }
 
 }

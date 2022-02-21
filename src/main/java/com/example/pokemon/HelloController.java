@@ -2,38 +2,35 @@ package com.example.pokemon;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Label;
+
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Objects;
-import java.util.ResourceBundle;
+
 
 public class HelloController {
 
 
-
     Pokemon pokemonSeleccionado;
 
-    Pokemon p1 = new Pokemon("Gengar", 70, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png ")) ;
-    Pokemon p2 = new Pokemon("Machoke", 47, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png")) ;
-    Pokemon p3 = new Pokemon("Togepi", 50, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\togepi.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"),new File("src\\main\\java\\com\\example\\pokemon\\fotos\\tegepiespalda.png")) ;
-    Pokemon p4 = new Pokemon("Mr.Mine", 68, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmine.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmimeespalda.png")) ;
-    Pokemon p5 = new Pokemon("Caterpie", 5, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpie.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpieespalda.png")) ;
-    Pokemon p6 = new Pokemon("Jynx", 85, 100,100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynx.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynxespalda.png")) ;
+    Pokemon p1 = new Pokemon("Gengar", 70, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png "));
+    Pokemon p2 = new Pokemon("Machoke", 47, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png"));
+    Pokemon p3 = new Pokemon("Togepi", 50, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\togepi.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\tegepiespalda.png"));
+    Pokemon p4 = new Pokemon("Mr.Mine", 68, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmine.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmimeespalda.png"));
+    Pokemon p5 = new Pokemon("Caterpie", 5, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpie.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpieespalda.png"));
+    Pokemon p6 = new Pokemon("Jynx", 85, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynx.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynxespalda.png"));
 
     //Pokemon1
     @FXML
@@ -142,32 +139,27 @@ public class HelloController {
     Label continuar;
 
 
-
-/*
-public void inicializar(Interfaz interfaz){
-    interfaz.foto.setImage(new Image(interfaz.pokemon.foto.toURI().toString()));
-    interfaz.sexo.setImage(new Image(interfaz.pokemon.sexo.toURI().toString()));
-    interfaz.nombre.setText(interfaz.pokemon.nombre);
-    interfaz.nivel.setText(interfaz.pokemon.nivel.toString());
-    interfaz.vida.setProgress((double)interfaz.pokemon.vidaRestante/interfaz.pokemon.vida);
-    interfaz.vidanum.setText(interfaz.pokemon.vida.toString());
-}
-*/
+    // public void inicializar(Interfaz interfaz){
+//     interfaz.foto.setImage(new Image(interfaz.pokemon.foto.toURI().toString()));
+//     interfaz.sexo.setImage(new Image(interfaz.pokemon.sexo.toURI().toString()));
+//     interfaz.nombre.setText(interfaz.pokemon.nombre);
+//     interfaz.nivel.setText(interfaz.pokemon.nivel.toString());
+//     interfaz.vida.setProgress((double)interfaz.pokemon.vidaRestante/interfaz.pokemon.vida);
+//     interfaz.vidanum.setText(interfaz.pokemon.vida.toString());
+// }
     @FXML
     public void initialize() {
-      /*  ArrayList lista = new ArrayList();
-        lista.add(new Interfaz(nombre1, nivel1, foto1, sexo1, vida1, vidanum1, p1));
-        lista.add(new Interfaz(nombre2, nivel2, foto2, sexo2, vida2, vidanum2, p2));
-        lista.add(new Interfaz(nombre3, nivel3, foto3, sexo3, vida3, vidanum3, p3));
-        lista.add(new Interfaz(nombre4, nivel4, foto4, sexo4, vida4, vidanum4, p4));
-        lista.add(new Interfaz(nombre5, nivel5, foto5, sexo5, vida5, vidanum5, p5));
-        lista.add(new Interfaz(nombre6, nivel6, foto6, sexo6, vida6, vidanum6, p6));
-
-        for (Object interfaz: lista ) {
-            inicializar((Interfaz) interfaz);
-        }
-
-*/
+        //  ArrayList lista = new ArrayList();
+        // lista.add(new Interfaz(nombre1, nivel1, foto1, sexo1, vida1, vidanum1, p1));
+        // lista.add(new Interfaz(nombre2, nivel2, foto2, sexo2, vida2, vidanum2, p2));
+        // lista.add(new Interfaz(nombre3, nivel3, foto3, sexo3, vida3, vidanum3, p3));
+        // lista.add(new Interfaz(nombre4, nivel4, foto4, sexo4, vida4, vidanum4, p4));
+        // lista.add(new Interfaz(nombre5, nivel5, foto5, sexo5, vida5, vidanum5, p5));
+        // lista.add(new Interfaz(nombre6, nivel6, foto6, sexo6, vida6, vidanum6, p6));
+        //
+        // for (Object interfaz: lista ) {
+        //     inicializar((Interfaz) interfaz);
+        // }
 
 
         Image imagen1 = new Image(p1.foto.toURI().toString());
@@ -226,270 +218,165 @@ public void inicializar(Interfaz interfaz){
     }
 
     @FXML
-    public void pulsar1(){
-    continuar.setDisable(false);
-    nombre2.setTextFill(Color.WHITE);
-    nivel2.setTextFill(Color.WHITE);
-    vidanum2.setTextFill(Color.WHITE);
-    pokemon2.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+    public void pulsar1() {
+        resetear();
 
-    nombre3.setTextFill(Color.WHITE);
-    nivel3.setTextFill(Color.WHITE);
-    vidanum3.setTextFill(Color.WHITE);
-    pokemon3.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+        nombre1.setTextFill(Color.YELLOW);
+        nivel1.setTextFill(Color.YELLOW);
+        vidanum1.setTextFill(Color.YELLOW);
+        pokemon1.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-    nombre4.setTextFill(Color.WHITE);
-    nivel4.setTextFill(Color.WHITE);
-    vidanum4.setTextFill(Color.WHITE);
-    pokemon4.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-    nombre5.setTextFill(Color.WHITE);
-    nivel5.setTextFill(Color.WHITE);
-    vidanum5.setTextFill(Color.WHITE);
-    pokemon5.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-    nombre6.setTextFill(Color.WHITE);
-    nivel6.setTextFill(Color.WHITE);
-    vidanum6.setTextFill(Color.WHITE);
-    pokemon6.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-    nombre1.setTextFill(Color.YELLOW);
-    nivel1.setTextFill(Color.YELLOW);
-    vidanum1.setTextFill(Color.YELLOW);
-    pokemon1.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
-
-        pokemonSeleccionado=p1;
-
+        pokemonSeleccionado = p1;
 
 
     }
 
     @FXML
-    public void pulsar2(){
-        continuar.setDisable(false);
-        nombre1.setTextFill(Color.WHITE);
-        nivel1.setTextFill(Color.WHITE);
-        vidanum1.setTextFill(Color.WHITE);
-        pokemon1.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre3.setTextFill(Color.WHITE);
-        nivel3.setTextFill(Color.WHITE);
-        vidanum3.setTextFill(Color.WHITE);
-        pokemon3.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre4.setTextFill(Color.WHITE);
-        nivel4.setTextFill(Color.WHITE);
-        vidanum4.setTextFill(Color.WHITE);
-        pokemon4.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre5.setTextFill(Color.WHITE);
-        nivel5.setTextFill(Color.WHITE);
-        vidanum5.setTextFill(Color.WHITE);
-        pokemon5.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre6.setTextFill(Color.WHITE);
-        nivel6.setTextFill(Color.WHITE);
-        vidanum6.setTextFill(Color.WHITE);
-        pokemon6.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+    public void pulsar2() {
+        resetear();
 
 
         nombre2.setTextFill(Color.YELLOW);
         nivel2.setTextFill(Color.YELLOW);
         vidanum2.setTextFill(Color.YELLOW);
-        pokemon2.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+        pokemon2.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-        pokemonSeleccionado=p2;
+        pokemonSeleccionado = p2;
 
 
     }
 
     @FXML
-    public void pulsar3(){
-        continuar.setDisable(false);
-
-        nombre2.setTextFill(Color.WHITE);
-        nivel2.setTextFill(Color.WHITE);
-        vidanum2.setTextFill(Color.WHITE);
-        pokemon2.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre1.setTextFill(Color.WHITE);
-        nivel1.setTextFill(Color.WHITE);
-        vidanum1.setTextFill(Color.WHITE);
-        pokemon1.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre4.setTextFill(Color.WHITE);
-        nivel4.setTextFill(Color.WHITE);
-        vidanum4.setTextFill(Color.WHITE);
-        pokemon4.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre5.setTextFill(Color.WHITE);
-        nivel5.setTextFill(Color.WHITE);
-        vidanum5.setTextFill(Color.WHITE);
-        pokemon5.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre6.setTextFill(Color.WHITE);
-        nivel6.setTextFill(Color.WHITE);
-        vidanum6.setTextFill(Color.WHITE);
-        pokemon6.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
+    public void pulsar3() {
+        resetear();
 
 
         nombre3.setTextFill(Color.YELLOW);
         nivel3.setTextFill(Color.YELLOW);
         vidanum3.setTextFill(Color.YELLOW);
-        pokemon3.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+        pokemon3.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-       pokemonSeleccionado=p3;
+        pokemonSeleccionado = p3;
 
     }
 
     @FXML
-    public void pulsar4(){
-        continuar.setDisable(false);
-        nombre2.setTextFill(Color.WHITE);
-        nivel2.setTextFill(Color.WHITE);
-        vidanum2.setTextFill(Color.WHITE);
-        pokemon2.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre3.setTextFill(Color.WHITE);
-        nivel3.setTextFill(Color.WHITE);
-        vidanum3.setTextFill(Color.WHITE);
-        pokemon3.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre1.setTextFill(Color.WHITE);
-        nivel1.setTextFill(Color.WHITE);
-        vidanum1.setTextFill(Color.WHITE);
-        pokemon1.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre5.setTextFill(Color.WHITE);
-        nivel5.setTextFill(Color.WHITE);
-        vidanum5.setTextFill(Color.WHITE);
-        pokemon5.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre6.setTextFill(Color.WHITE);
-        nivel6.setTextFill(Color.WHITE);
-        vidanum6.setTextFill(Color.WHITE);
-        pokemon6.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+    public void pulsar4() {
+        resetear();
 
 
         nombre4.setTextFill(Color.YELLOW);
         nivel4.setTextFill(Color.YELLOW);
         vidanum4.setTextFill(Color.YELLOW);
-        pokemon4.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+        pokemon4.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
-        pokemonSeleccionado=p4;
+        pokemonSeleccionado = p4;
 
 
     }
 
     @FXML
-    public void pulsar5(){
-        continuar.disabledProperty();
-        continuar.setDisable(false);
-        nombre2.setTextFill(Color.WHITE);
-        nivel2.setTextFill(Color.WHITE);
-        vidanum2.setTextFill(Color.WHITE);
-        pokemon2.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre3.setTextFill(Color.WHITE);
-        nivel3.setTextFill(Color.WHITE);
-        vidanum3.setTextFill(Color.WHITE);
-        pokemon3.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre4.setTextFill(Color.WHITE);
-        nivel4.setTextFill(Color.WHITE);
-        vidanum4.setTextFill(Color.WHITE);
-        pokemon4.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre1.setTextFill(Color.WHITE);
-        nivel1.setTextFill(Color.WHITE);
-        vidanum1.setTextFill(Color.WHITE);
-        pokemon1.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre6.setTextFill(Color.WHITE);
-        nivel6.setTextFill(Color.WHITE);
-        vidanum6.setTextFill(Color.WHITE);
-        pokemon6.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+    public void pulsar5() {
+        resetear();
 
 
         nombre5.setTextFill(Color.YELLOW);
         nivel5.setTextFill(Color.YELLOW);
         vidanum5.setTextFill(Color.YELLOW);
-        pokemon5.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+        pokemon5.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
 
-       pokemonSeleccionado=p5;
+        pokemonSeleccionado = p5;
 
     }
 
     @FXML
-    public void pulsar6(){
-        continuar.setDisable(false);
-        nombre2.setTextFill(Color.WHITE);
-        nivel2.setTextFill(Color.WHITE);
-        vidanum2.setTextFill(Color.WHITE);
-        pokemon2.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre3.setTextFill(Color.WHITE);
-        nivel3.setTextFill(Color.WHITE);
-        vidanum3.setTextFill(Color.WHITE);
-        pokemon3.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre4.setTextFill(Color.WHITE);
-        nivel4.setTextFill(Color.WHITE);
-        vidanum4.setTextFill(Color.WHITE);
-        pokemon4.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre5.setTextFill(Color.WHITE);
-        nivel5.setTextFill(Color.WHITE);
-        vidanum5.setTextFill(Color.WHITE);
-        pokemon5.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
-        nombre1.setTextFill(Color.WHITE);
-        nivel1.setTextFill(Color.WHITE);
-        vidanum1.setTextFill(Color.WHITE);
-        pokemon1.setStyle( "-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
-
+    public void pulsar6() {
+        resetear();
 
 
         nombre6.setTextFill(Color.YELLOW);
         nivel6.setTextFill(Color.YELLOW);
         vidanum6.setTextFill(Color.YELLOW);
-        pokemon6.setStyle( "-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
+        pokemon6.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
 
 
-       pokemonSeleccionado=p6;
+        pokemonSeleccionado = p6;
 
     }
+
+    public void resetear(){
+        continuar.setDisable(false);
+        nombre2.setTextFill(Color.WHITE);
+        nivel2.setTextFill(Color.WHITE);
+        vidanum2.setTextFill(Color.WHITE);
+        pokemon2.setStyle("-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+
+        nombre3.setTextFill(Color.WHITE);
+        nivel3.setTextFill(Color.WHITE);
+        vidanum3.setTextFill(Color.WHITE);
+        pokemon3.setStyle("-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+
+        nombre4.setTextFill(Color.WHITE);
+        nivel4.setTextFill(Color.WHITE);
+        vidanum4.setTextFill(Color.WHITE);
+        pokemon4.setStyle("-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+
+        nombre5.setTextFill(Color.WHITE);
+        nivel5.setTextFill(Color.WHITE);
+        vidanum5.setTextFill(Color.WHITE);
+        pokemon5.setStyle("-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+
+        nombre1.setTextFill(Color.WHITE);
+        nivel1.setTextFill(Color.WHITE);
+        vidanum1.setTextFill(Color.WHITE);
+        pokemon1.setStyle("-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+
+        nombre6.setTextFill(Color.WHITE);
+        nivel6.setTextFill(Color.WHITE);
+        vidanum6.setTextFill(Color.WHITE);
+        pokemon6.setStyle("-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+    }
+
     @FXML
     public void avanzar() throws IOException {
-      /*  Stage stage = new Stage();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Ventana2.fxml")));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        HelloControllerCombate v=
-        v.setPokemon(pokemonSeleccionado);*/
+       /* Stage stage = new Stage();
+         AnchorPane root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Ventana2.fxml")));
+         Scene scene = new Scene(root);
+         stage.setScene(scene);
+         stage.show();
+
+      HelloControllerCombate v = new HelloControllerCombate();
+        v.inicializar(pokemonSeleccionado);
+
+        */
 
 
 
+/*
 
         Stage stage = new Stage();
         stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ventana2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("/com/example/pokemon/Ventana2.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 663, 400);
         stage.setScene(scene);
         stage.show();
-        HelloControllerCombate v=fxmlLoader.load();
+
+        HelloControllerCombate v=fxmlLoader.getController();
 
         v.inicializar(pokemonSeleccionado);
 
-}
-
-    ;
-
+ */
 
     }
+}
+
+
+
+
+
+
+
 
 
 
