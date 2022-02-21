@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="340.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/11.0.2"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloControllerCombate"><![CDATA[
-   ]]><ImageView fitHeight="421.0" fitWidth="621.0" pickOnBounds="true" preserveRatio="true">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloControllerCombate">
+   <ImageView fitHeight="421.0" fitWidth="621.0" pickOnBounds="true" preserveRatio="true">
    <Image url="@../../../../java/com/example/pokemon/fotos/fondo.png"/>
    </ImageView>
    <ImageView fx:id="pokemonBueno" fitHeight="150.0" fitWidth="200.0" layoutX="73.0" layoutY="187.0" pickOnBounds="true"
@@ -122,12 +122,12 @@
    </BorderPane>
    <AnchorPane fx:id="menuSalir" layoutX="129.0" layoutY="49.0" prefHeight="281.0" prefWidth="362.0"
                style="-fx-background-color: #f0ead6; -fx-border-color: #2f4f4f; -fx-border-width: 3;" visible="false">
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="81.0" layoutY="66.0"
+      <ImageView fx:id="fotoMuerto" fitHeight="150.0" fitWidth="200.0" layoutX="81.0" layoutY="66.0"
                  pickOnBounds="true" preserveRatio="true"/>
-      <Label layoutX="81.0" layoutY="49.0" text="Label"/>
+      <Label fx:id="nombreMuerto" layoutX="81.0" layoutY="49.0" text="Label"/>
       <Button layoutX="255.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#salirBoton"
               text="SALIR"/>
-      <Button layoutX="53.0" layoutY="219.0" mnemonicParsing="false"
+      <Button  layoutX="53.0" layoutY="219.0" mnemonicParsing="false"
               onMouseClicked="#continuarBoton" text="VOLVER A LUCHAR"/>
    </AnchorPane>
 </AnchorPane>
