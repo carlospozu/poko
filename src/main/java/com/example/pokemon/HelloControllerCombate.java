@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
 import java.io.File;
 import java.util.Random;
 
@@ -17,11 +20,17 @@ public class HelloControllerCombate  {
     public Label curar;
     public Label atacar;
 
+
     PokemonMalo aleatorio;
     PokemonMalo m1 = new PokemonMalo("Mewtwo", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mewtwo.png"));
     PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\draqonite.png"));
     PokemonMalo m3 = new PokemonMalo("Gyarados", 90, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gyarados.png"));
-    PokemonMalo m4 = new PokemonMalo("Rayquaza", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\rayquaza.png"));
+    PokemonMalo m4 = new PokemonMalo("Rayquaza", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\rayquaza.jpg"));
+
+    float lifeMalo;
+    float vidaBarraMalo;
+    float life;
+    float vidaBarra;
 
 
 
@@ -49,6 +58,10 @@ public class HelloControllerCombate  {
     ImageView PokemonMalo;
     @FXML
     ImageView fondo;
+    @FXML
+    BorderPane ataques;
+    @FXML
+    AnchorPane menuSalir;
     
     
 
@@ -64,13 +77,13 @@ public class HelloControllerCombate  {
  */
 
 
-
+Pokemon pokemonSeleccionado;
 
     @FXML
     public void initialize(Pokemon pokemonSeleccionado) {
 
 
-
+        this.pokemonSeleccionado=pokemonSeleccionado;
         Random r = new Random();
         int n = r. nextInt(5)+1;
         System.out.println("holaaa");
@@ -122,31 +135,51 @@ public class HelloControllerCombate  {
             }
         }
 
-
+        lifeMalo = aleatorio.vidaRestante;
+        vidaBarraMalo = (lifeMalo/aleatorio.vida);
         Image fotomalo = new Image(aleatorio.foto.toURI().toString());
         PokemonMalo.setImage(fotomalo);
         nombreEnemy.setText(aleatorio.nombre);
         nivelEnemy.setText(String.valueOf(aleatorio.nivel));
-        vidaEnemy.setProgress(aleatorio.vidaRestante);
+        vidaEnemy.setProgress(vidaBarraMalo);
         vidaNumEnemy.setText(String.valueOf(aleatorio.vida));
 
+        life = pokemonSeleccionado.vidaRestante;
+        vidaBarra= (life/pokemonSeleccionado.vida);
         Image fotobueno = new Image(pokemonSeleccionado.fotodetras.toURI().toString());
         pokemonBueno.setImage(fotobueno);
         nombrePokemon.setText(pokemonSeleccionado.nombre);
         nivelPokemon.setText(String.valueOf(pokemonSeleccionado.nivel));
-        vidaPokemon.setProgress(pokemonSeleccionado.vidaRestante);
-        vidaNumPokemon.setText(String.valueOf(pokemonSeleccionado.vida));
+        vidaPokemon.setProgress(vidaBarra);
+        vidaNumPokemon.setText(String.valueOf(pokemonSeleccionado.vidaRestante));
+        ataques.setVisible(false);
+
 
     }
 
     public void ataque(MouseEvent mouseEvent) {
+        ataques.setVisible(true);
 
     }
 
     public void curar(MouseEvent mouseEvent) {
+
     }
 
     public void atacarSeguro(MouseEvent mouseEvent) {
+        if (!(lifeMalo == 0 || life == 0)){
+            lifeMalo = lifeMalo-20;
+            vidaBarraMalo= (lifeMalo/aleatorio.vida);
+            vidaEnemy.setProgress(vidaBarraMalo);
+            life = life-20;
+            vidaBarra= (life/pokemonSeleccionado.vida);
+            vidaPokemon.setProgress(vidaBarra);
+        }
+        else {
+            menuSalir.setVisible(true);
+        }
+
+
     }
 
     public void atacarArriesgado(MouseEvent mouseEvent) {
@@ -156,6 +189,7 @@ public class HelloControllerCombate  {
     }
 
     public void cancelar(MouseEvent mouseEvent) {
+        ataques.setVisible(false);
     }
 
     public void salirBoton(MouseEvent mouseEvent) {
