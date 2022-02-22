@@ -133,30 +133,8 @@ public class HelloController {
     @FXML
     Label continuar;
 
-
-    // public void inicializar(Interfaz interfaz){
-//     interfaz.foto.setImage(new Image(interfaz.pokemon.foto.toURI().toString()));
-//     interfaz.sexo.setImage(new Image(interfaz.pokemon.sexo.toURI().toString()));
-//     interfaz.nombre.setText(interfaz.pokemon.nombre);
-//     interfaz.nivel.setText(interfaz.pokemon.nivel.toString());
-//     interfaz.vida.setProgress((double)interfaz.pokemon.vidaRestante/interfaz.pokemon.vida);
-//     interfaz.vidanum.setText(interfaz.pokemon.vida.toString());
-// }
     @FXML
     public void initialize() {
-        //  ArrayList lista = new ArrayList();
-        // lista.add(new Interfaz(nombre1, nivel1, foto1, sexo1, vida1, vidanum1, p1));
-        // lista.add(new Interfaz(nombre2, nivel2, foto2, sexo2, vida2, vidanum2, p2));
-        // lista.add(new Interfaz(nombre3, nivel3, foto3, sexo3, vida3, vidanum3, p3));
-        // lista.add(new Interfaz(nombre4, nivel4, foto4, sexo4, vida4, vidanum4, p4));
-        // lista.add(new Interfaz(nombre5, nivel5, foto5, sexo5, vida5, vidanum5, p5));
-        // lista.add(new Interfaz(nombre6, nivel6, foto6, sexo6, vida6, vidanum6, p6));
-        //
-        // for (Object interfaz: lista ) {
-        //     inicializar((Interfaz) interfaz);
-        // }
-
-
 
         float vid1 = p1.vidaRestante;
         float vidaBarra1= (vid1/p1.vida);
@@ -223,7 +201,6 @@ public class HelloController {
         nivel6.setText(String.valueOf(p6.nivel));
         vida6.setProgress(vidaBarra6);
         vidanum6.setText(String.valueOf(p6.vidaRestante));
-
     }
 
     @FXML
@@ -331,7 +308,7 @@ public class HelloController {
         stage.setResizable(false);
         HelloControllerCombate v=fxmlLoader.getController();
         v.initialize(pokemonSeleccionado);
-        v.pokemonPasado(this);
+        v.pokemonPasado();
 
     }
 }

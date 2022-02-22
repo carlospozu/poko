@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -121,7 +120,7 @@ public class HelloControllerCombate {
         curar.setDisable(true);
     }
 
-    public void curar(MouseEvent mouseEvent) {
+    public void curar() {
         Random g = new Random();
         int a = g.nextInt(76) + 25;
         life = life + a;
@@ -144,7 +143,7 @@ public class HelloControllerCombate {
 
     }
 
-    public void atacarSeguro(MouseEvent mouseEvent) {
+    public void atacarSeguro() {
         if (!(lifeMalo <= 0 || life <= 0)) {
             lifeMalo = lifeMalo - 20;
             vidaBarraMalo = (lifeMalo / aleatorio.vida);
@@ -155,14 +154,15 @@ public class HelloControllerCombate {
                 vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
-
             } else {
+                menu();
+            }if (life <= 0){
                 menu();
             }
         }
     }
 
-    public void atacarArriesgado(MouseEvent mouseEvent) {
+    public void atacarArriesgado() {
         if (!(lifeMalo <= 0 || life <= 0)) {
             Random c = new Random();
             int a = c.nextInt(26) + 10;
@@ -177,13 +177,18 @@ public class HelloControllerCombate {
                 vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
-            } else {
+            }
+            else {
+                menu();
+            }
+            if (life <= 0){
                 menu();
             }
         }
-    }
+        }
 
-    public void atacarMuyArriesgado(MouseEvent mouseEvent) {
+
+    public void atacarMuyArriesgado() {
         if (!(lifeMalo <= 0 || life <= 0)) {
             Random e = new Random();
             int a = e.nextInt(51);
@@ -200,21 +205,23 @@ public class HelloControllerCombate {
                 vidaNumPokemon.setText(String.valueOf((life)));
             } else {
                 menu();
+            }if (life <= 0){
+                menu();
             }
         }
     }
 
-    public void cancelar(MouseEvent mouseEvent) {
+    public void cancelar() {
         ataques.setVisible(false);
         atacar.setDisable(false);
         curar.setDisable(false);
     }
 
-    public void salirBoton(MouseEvent mouseEvent) {
+    public void salirBoton() {
         System.exit(0);
     }
 
-    public void continuarBoton(MouseEvent mouseEvent) throws IOException {
+    public void continuarBoton() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Ventana1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 663, 400);
@@ -222,9 +229,10 @@ public class HelloControllerCombate {
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
+
     }
 
-    public void pokemonPasado(HelloController helloController) {
+    public void pokemonPasado() {
         Pokemon pokemon = pokemonPagina1;
     }
 
