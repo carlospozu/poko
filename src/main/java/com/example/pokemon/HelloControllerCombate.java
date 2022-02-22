@@ -14,15 +14,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Random;
 
 
 public class HelloControllerCombate {
 
     public static Pokemon pokemonPagina1;
-    public Label curar;
-    public Label atacar;
+
 
     Foto foto = new Foto(new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fondo.png"));
     PokemonMalo aleatorio;
@@ -36,6 +34,10 @@ public class HelloControllerCombate {
     float life;
     float vidaBarra;
 
+    @FXML
+    Label atacar;
+    @FXML
+    Label curar;
 
     @FXML
     ImageView fotoMuerto;
@@ -69,6 +71,7 @@ public class HelloControllerCombate {
     BorderPane ataques;
     @FXML
     AnchorPane menuSalir;
+
 
 
     Pokemon pokemonSeleccionado;
@@ -110,13 +113,12 @@ public class HelloControllerCombate {
 
         Image image = new Image(foto.foto.toURI().toString());
         fondo.setImage(image);
-
-
     }
 
     public void ataque() {
         ataques.setVisible(true);
-
+        atacar.setDisable(true);
+        curar.setDisable(true);
     }
 
     public void curar(MouseEvent mouseEvent) {
@@ -139,7 +141,6 @@ public class HelloControllerCombate {
         vidaBarraMalo = (lifeMalo / aleatorio.vida);
         vidaEnemy.setProgress(vidaBarraMalo);
         vidaNumEnemy.setText(String.valueOf(lifeMalo));
-
     }
 
     public void atacarSeguro(MouseEvent mouseEvent) {
@@ -157,7 +158,6 @@ public class HelloControllerCombate {
                 menu();
             }
         }
-
     }
 
     public void atacarArriesgado(MouseEvent mouseEvent) {
@@ -179,7 +179,6 @@ public class HelloControllerCombate {
                 menu();
             }
         }
-
     }
 
     public void atacarMuyArriesgado(MouseEvent mouseEvent) {
@@ -201,11 +200,12 @@ public class HelloControllerCombate {
                 menu();
             }
         }
-
     }
 
     public void cancelar(MouseEvent mouseEvent) {
         ataques.setVisible(false);
+        atacar.setDisable(false);
+        curar.setDisable(false);
     }
 
     public void salirBoton(MouseEvent mouseEvent) {
