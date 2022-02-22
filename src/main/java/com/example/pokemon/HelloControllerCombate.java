@@ -27,7 +27,7 @@ public class HelloControllerCombate {
     PokemonMalo m1 = new PokemonMalo("Mewtwo", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mewtwo.png"));
     PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\dragonite.png"));
     PokemonMalo m3 = new PokemonMalo("Gyarados", 90, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gyarados.png"));
-    PokemonMalo m4 = new PokemonMalo("Rayquaza", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\rayquaza.jpg"));
+    PokemonMalo m4 = new PokemonMalo("Onix", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\onix.png"));
 
     float lifeMalo;
     float vidaBarraMalo;
@@ -141,6 +141,7 @@ public class HelloControllerCombate {
         vidaBarraMalo = (lifeMalo / aleatorio.vida);
         vidaEnemy.setProgress(vidaBarraMalo);
         vidaNumEnemy.setText(String.valueOf(lifeMalo));
+
     }
 
     public void atacarSeguro(MouseEvent mouseEvent) {
@@ -154,6 +155,7 @@ public class HelloControllerCombate {
                 vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
+
             } else {
                 menu();
             }
