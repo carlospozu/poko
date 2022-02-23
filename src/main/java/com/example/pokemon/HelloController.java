@@ -14,18 +14,17 @@ import java.io.File;
 import java.io.IOException;
 
 
-
 public class HelloController {
 
-
+    int seleccionado;
     Pokemon pokemonSeleccionado;
 
-    Pokemon p1 = new Pokemon("Gengar", 70, 140, 140, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png "));
-    Pokemon p2 = new Pokemon("Machoke", 47, 100, 40, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png"));
-    Pokemon p3 = new Pokemon("Togepi", 50, 100, 20, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\togepi.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\tegepiespalda.png"));
-    Pokemon p4 = new Pokemon("Mr.Mine", 68, 100, 30, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmine.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmimeespalda.png"));
-    Pokemon p5 = new Pokemon("Caterpie", 5, 100, 34, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpie.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpieespalda.png"));
-    Pokemon p6 = new Pokemon("Jynx", 85, 100, 95, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynx.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynxespalda.png"));
+    Pokemon p1 = new Pokemon("Gengar", 70, 140, 140, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengar.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\gengarespalda.png"), false);
+    Pokemon p2 = new Pokemon("Machoke", 47, 100, 40, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machoke.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\machokeespalda.png"),false);
+    Pokemon p3 = new Pokemon("Togepi", 50, 100, 20, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\togepi.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\tegepiespalda.png"),false);
+    Pokemon p4 = new Pokemon("Mr.Mine", 68, 100, 30, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmine.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\masc.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mrmimeespalda.png"),false);
+    Pokemon p5 = new Pokemon("Caterpie", 5, 100, 34, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpie.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\caterpieespalda.png"),false);
+    Pokemon p6 = new Pokemon("Jynx", 85, 100, 95, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynx.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fem.png"), new File("src\\main\\java\\com\\example\\pokemon\\fotos\\jynxespalda.png"),false);
 
     //Pokemon1
     @FXML
@@ -137,6 +136,8 @@ public class HelloController {
     public void initialize() {
 
 
+
+
         float vid1 = p1.vidaRestante;
         float vidaBarra1= (vid1/p1.vida);
         Image imagen1 = new Image(p1.foto.toURI().toString());
@@ -205,20 +206,7 @@ public class HelloController {
     }
 
 
-    public void actualizar(Pokemon pokemonSeleccionado, float vidaBarra){
 
-        this.pokemonSeleccionado = pokemonSeleccionado;
-        System.out.println(vidaBarra);
-        System.out.println(pokemonSeleccionado.nombre);
-
-        if (pokemonSeleccionado.equals(p1))vida1.setProgress(vidaBarra);
-        if (pokemonSeleccionado.equals(p2))vida2.setProgress(vidaBarra);
-        if (pokemonSeleccionado.equals(p3))vida3.setProgress(vidaBarra);
-        if (pokemonSeleccionado.equals(p4))vida4.setProgress(vidaBarra);
-        if (pokemonSeleccionado.equals(p5))vida5.setProgress(vidaBarra);
-        if (pokemonSeleccionado.equals(p6))vida6.setProgress(vidaBarra);
-
-    }
     @FXML
     public void pulsar1() {
         resetear();
@@ -227,6 +215,7 @@ public class HelloController {
         vidanum1.setTextFill(Color.YELLOW);
         pokemon1.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
         pokemonSeleccionado = p1;
+        p1.seleccionado = true;
     }
 
     @FXML
@@ -237,6 +226,7 @@ public class HelloController {
         vidanum2.setTextFill(Color.YELLOW);
         pokemon2.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
         pokemonSeleccionado = p2;
+        p2.seleccionado = true;
     }
 
     @FXML
@@ -247,6 +237,7 @@ public class HelloController {
         vidanum3.setTextFill(Color.YELLOW);
         pokemon3.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
         pokemonSeleccionado = p3;
+        p3.seleccionado = true;
     }
 
     @FXML
@@ -257,6 +248,8 @@ public class HelloController {
         vidanum4.setTextFill(Color.YELLOW);
         pokemon4.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
         pokemonSeleccionado = p4;
+
+        p4.seleccionado= true;
     }
 
     @FXML
@@ -267,6 +260,8 @@ public class HelloController {
         vidanum5.setTextFill(Color.YELLOW);
         pokemon5.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
         pokemonSeleccionado = p5;
+
+        p5.seleccionado=true;
     }
 
     @FXML
@@ -277,6 +272,51 @@ public class HelloController {
         vidanum6.setTextFill(Color.YELLOW);
         pokemon6.setStyle("-fx-border-color: #47175e; -fx-background-color:#61355e; -fx-border-width:3");
         pokemonSeleccionado = p6;
+
+        p6.seleccionado = true;
+        System.out.println(seleccionado);
+    }
+
+    public void actualizar(Pokemon pokemonSeleccionado, float life){
+        this.pokemonSeleccionado=pokemonSeleccionado;
+
+        pokemonSeleccionado.vidaRestante = life;
+        System.out.println(pokemonSeleccionado.vidaRestante);
+        System.out.println(pokemonSeleccionado.seleccionado);
+        System.out.println(p1.seleccionado);
+        System.out.println(p2.seleccionado);
+        System.out.println(p3.seleccionado);
+        System.out.println(p4.seleccionado);
+        System.out.println(p5.seleccionado);
+        System.out.println(p6.seleccionado);
+
+        if(!p1.seleccionado){
+            p1=pokemonSeleccionado;
+            vida1.setProgress((double)p1.vidaRestante/p1.vida);
+        }else{
+            System.out.println("ERROR");
+        }
+        if(p2.seleccionado){
+            p2=pokemonSeleccionado;
+            vida2.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
+        }
+        if(p3.seleccionado){
+            p3=pokemonSeleccionado;
+            vida3.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
+        }
+        if(p4.seleccionado){
+            p4=pokemonSeleccionado;
+            vida1.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
+        }
+        if(p5.seleccionado){
+            p5=pokemonSeleccionado;
+            vida1.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
+        }
+        if(p6.seleccionado){
+            p6=pokemonSeleccionado;
+            vida1.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
+        }
+
     }
 
     public void resetear(){
@@ -310,6 +350,12 @@ public class HelloController {
         nivel6.setTextFill(Color.WHITE);
         vidanum6.setTextFill(Color.WHITE);
         pokemon6.setStyle("-fx-border-color:  #339FFF; -fx-background-color: #339FFF;");
+        p1.seleccionado = false;
+        p2.seleccionado = false;
+        p3.seleccionado = false;
+        p4.seleccionado = false;
+        p5.seleccionado = false;
+        p6.seleccionado = false;
     }
 
     @FXML
