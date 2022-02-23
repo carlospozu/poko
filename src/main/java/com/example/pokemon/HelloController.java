@@ -280,7 +280,30 @@ public class HelloController {
     public void actualizar(Pokemon pokemonSeleccionado, float life){
         this.pokemonSeleccionado=pokemonSeleccionado;
 
+
         pokemonSeleccionado.vidaRestante = life;
+        if (pokemonSeleccionado.nombre == p1.nombre){
+
+            p1=pokemonSeleccionado;
+            float vidd1 = p1.vidaRestante;
+            float vidaBarraa1= (vidd1/p1.vida);
+            vida1.setProgress(p1.vidaRestante/p1.vida);
+        }
+        if (pokemonSeleccionado.nombre == p2.nombre){
+            p2=pokemonSeleccionado;
+        }
+        if (pokemonSeleccionado.nombre == p3.nombre){
+            p3=pokemonSeleccionado;
+        }
+        if (pokemonSeleccionado.nombre == p4.nombre){
+            p4=pokemonSeleccionado;
+        }
+        if (pokemonSeleccionado.nombre == p5.nombre){
+            p5=pokemonSeleccionado;
+        }
+        if (pokemonSeleccionado.nombre == p6.nombre){
+            p6=pokemonSeleccionado;
+        }
         System.out.println(pokemonSeleccionado.vidaRestante);
         System.out.println(pokemonSeleccionado.seleccionado);
         System.out.println(p1.seleccionado);
@@ -289,33 +312,39 @@ public class HelloController {
         System.out.println(p4.seleccionado);
         System.out.println(p5.seleccionado);
         System.out.println(p6.seleccionado);
-
-        if(!p1.seleccionado){
+        double division;
+        /*
+        if(p1.seleccionado){
             p1=pokemonSeleccionado;
-            vida1.setProgress((double)p1.vidaRestante/p1.vida);
+            division = (p1.vidaRestante/p1.vida);
+            vida1.setProgress(division);
         }else{
             System.out.println("ERROR");
         }
         if(p2.seleccionado){
-            p2=pokemonSeleccionado;
+
             vida2.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
         }
         if(p3.seleccionado){
-            p3=pokemonSeleccionado;
+
             vida3.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
         }
         if(p4.seleccionado){
-            p4=pokemonSeleccionado;
+
             vida1.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
         }
         if(p5.seleccionado){
-            p5=pokemonSeleccionado;
+
             vida1.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
         }
         if(p6.seleccionado){
-            p6=pokemonSeleccionado;
+
             vida1.setProgress((double)pokemonSeleccionado.vidaRestante/pokemonSeleccionado.vida);
         }
+
+         */
+
+
 
     }
 
