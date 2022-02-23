@@ -74,6 +74,7 @@ public class HelloControllerCombate {
 
 
     Pokemon pokemonSeleccionado;
+    private HelloController HelloController;
 
     @FXML
     public void initialize(Pokemon pokemonSeleccionado) {
@@ -130,6 +131,8 @@ public class HelloControllerCombate {
         vidaBarra = (life / pokemonSeleccionado.vida);
         vidaPokemon.setProgress(vidaBarra);
         vidaNumPokemon.setText(String.valueOf(life));
+        HelloController v = new HelloController();
+        v.actualizar(pokemonSeleccionado, vidaBarra);
 
         Random h = new Random();
         int b = h.nextInt(76) + 25;
@@ -154,6 +157,8 @@ public class HelloControllerCombate {
                 vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
+                HelloController v = new HelloController();
+                v.actualizar(pokemonSeleccionado, vidaBarra);
             } else {
                 menu();
             }if (life <= 0){
@@ -177,6 +182,8 @@ public class HelloControllerCombate {
                 vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
+                HelloController v = new HelloController();
+                v.actualizar(pokemonSeleccionado, vidaBarra);
             }
             else {
                 menu();
@@ -203,6 +210,8 @@ public class HelloControllerCombate {
                 vidaBarra = (life / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf((life)));
+                HelloController v = new HelloController();
+                v.actualizar(pokemonSeleccionado, vidaBarra);
             } else {
                 menu();
             }if (life <= 0){

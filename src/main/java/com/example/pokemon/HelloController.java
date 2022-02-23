@@ -136,6 +136,7 @@ public class HelloController {
     @FXML
     public void initialize() {
 
+
         float vid1 = p1.vidaRestante;
         float vidaBarra1= (vid1/p1.vida);
         Image imagen1 = new Image(p1.foto.toURI().toString());
@@ -203,6 +204,21 @@ public class HelloController {
         vidanum6.setText(String.valueOf(p6.vidaRestante));
     }
 
+
+    public void actualizar(Pokemon pokemonSeleccionado, float vidaBarra){
+
+        this.pokemonSeleccionado = pokemonSeleccionado;
+        System.out.println(vidaBarra);
+        System.out.println(pokemonSeleccionado.nombre);
+
+        if (pokemonSeleccionado.equals(p1))vida1.setProgress(vidaBarra);
+        if (pokemonSeleccionado.equals(p2))vida2.setProgress(vidaBarra);
+        if (pokemonSeleccionado.equals(p3))vida3.setProgress(vidaBarra);
+        if (pokemonSeleccionado.equals(p4))vida4.setProgress(vidaBarra);
+        if (pokemonSeleccionado.equals(p5))vida5.setProgress(vidaBarra);
+        if (pokemonSeleccionado.equals(p6))vida6.setProgress(vidaBarra);
+
+    }
     @FXML
     public void pulsar1() {
         resetear();
