@@ -19,6 +19,7 @@ import java.util.Random;
 public class HelloControllerCombate {
 
     public static Pokemon pokemonPagina1;
+    private HelloController HelloController;
 
 
     Foto foto = new Foto(new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fondo.png"));
@@ -74,7 +75,7 @@ public class HelloControllerCombate {
 
 
     Pokemon pokemonSeleccionado;
-    private HelloController HelloController;
+
 
     @FXML
     public void initialize(Pokemon pokemonSeleccionado) {
@@ -124,15 +125,14 @@ public class HelloControllerCombate {
     public void curar() {
         Random g = new Random();
         int a = g.nextInt(76) + 25;
-        life = life + a;
-        if (life > pokemonSeleccionado.vida) {
-            life = pokemonSeleccionado.vida;
+        pokemonSeleccionado.vidaRestante = pokemonSeleccionado.vidaRestante + a;
+        if (pokemonSeleccionado.vidaRestante > pokemonSeleccionado.vida) {
+            pokemonSeleccionado.vidaRestante = pokemonSeleccionado.vida;
         }
-        vidaBarra = (life / pokemonSeleccionado.vida);
+        vidaBarra = (pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
         vidaPokemon.setProgress(vidaBarra);
-        vidaNumPokemon.setText(String.valueOf(life));
-        HelloController v = new HelloController();
-        v.actualizar(pokemonSeleccionado, life);
+        vidaNumPokemon.setText(String.valueOf(pokemonSeleccionado.vidaRestante));
+        HelloController.actualizar();
 
         Random h = new Random();
         int b = h.nextInt(76) + 25;
@@ -147,28 +147,27 @@ public class HelloControllerCombate {
     }
 
     public void atacarSeguro() {
-        if (!(lifeMalo <= 0 || life <= 0)) {
+        if (!(lifeMalo <= 0 || pokemonSeleccionado.vidaRestante <= 0)) {
             lifeMalo = lifeMalo - 20;
             vidaBarraMalo = (lifeMalo / aleatorio.vida);
             vidaEnemy.setProgress(vidaBarraMalo);
             vidaNumEnemy.setText(String.valueOf(lifeMalo));
             if (lifeMalo > 0) {
-                life = life - 20;
-                vidaBarra = (life / pokemonSeleccionado.vida);
+                pokemonSeleccionado.vidaRestante = pokemonSeleccionado.vidaRestante - 20;
+                vidaBarra = (pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
                 vidaNumPokemon.setText(String.valueOf(life));
-                HelloController v = new HelloController();
-                v.actualizar(pokemonSeleccionado, life);
+                HelloController.actualizar();
             } else {
                 menu();
-            }if (life <= 0){
+            }if (pokemonSeleccionado.vidaRestante <= 0){
                 menu();
             }
         }
     }
 
     public void atacarArriesgado() {
-        if (!(lifeMalo <= 0 || life <= 0)) {
+        if (!(lifeMalo <= 0 || pokemonSeleccionado.vidaRestante <= 0)) {
             Random c = new Random();
             int a = c.nextInt(26) + 10;
             lifeMalo = lifeMalo - a;
@@ -178,17 +177,16 @@ public class HelloControllerCombate {
             if (lifeMalo > 0) {
                 Random d = new Random();
                 int b = d.nextInt(26) + 10;
-                life = life - b;
-                vidaBarra = (life / pokemonSeleccionado.vida);
+                pokemonSeleccionado.vidaRestante = pokemonSeleccionado.vidaRestante - b;
+                vidaBarra = (pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
-                vidaNumPokemon.setText(String.valueOf(life));
-                HelloController v = new HelloController();
-                v.actualizar(pokemonSeleccionado, life);
+                vidaNumPokemon.setText(String.valueOf(pokemonSeleccionado.vidaRestante));
+                HelloController.actualizar();
             }
             else {
                 menu();
             }
-            if (life <= 0){
+            if (pokemonSeleccionado.vidaRestante <= 0){
                 menu();
             }
         }
@@ -206,15 +204,14 @@ public class HelloControllerCombate {
             if (lifeMalo > 0) {
                 Random f = new Random();
                 int b = f.nextInt(51);
-                life = life - b;
-                vidaBarra = (life / pokemonSeleccionado.vida);
+                pokemonSeleccionado.vidaRestante = pokemonSeleccionado.vidaRestante - b;
+                vidaBarra = (pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
                 vidaPokemon.setProgress(vidaBarra);
-                vidaNumPokemon.setText(String.valueOf((life)));
-                HelloController v = new HelloController();
-                v.actualizar(pokemonSeleccionado, life);
+                vidaNumPokemon.setText(String.valueOf((pokemonSeleccionado.vidaRestante)));
+                HelloController.actualizar();
             } else {
                 menu();
-            }if (life <= 0){
+            }if (pokemonSeleccionado.vidaRestante <= 0){
                 menu();
             }
         }
@@ -241,8 +238,8 @@ public class HelloControllerCombate {
 
     }
 
-    public void pokemonPasado() {
-        Pokemon pokemon = pokemonPagina1;
+    public void pokemonPasado(HelloController Hellocontroller) {
+        this.HelloController= Hellocontroller;
     }
 
     public void menu() {

@@ -277,17 +277,31 @@ public class HelloController {
         System.out.println(seleccionado);
     }
 
-    public void actualizar(Pokemon pokemonSeleccionado, float life){
+
+    public void actualizar(){
+
+
+        vida1.setProgress(p1.vidaRestante/p1.vida);
+        vida2.setProgress(p2.vidaRestante/p2.vida);
+        vida3.setProgress(p3.vidaRestante/p1.vida);
+        vida4.setProgress(p4.vidaRestante/p1.vida);
+        vida5.setProgress(p5.vidaRestante/p1.vida);
+        vida6.setProgress(p6.vidaRestante/p1.vida);
+
+        /*
         this.pokemonSeleccionado=pokemonSeleccionado;
 
 
+
         pokemonSeleccionado.vidaRestante = life;
+
+
         if (pokemonSeleccionado.nombre == p1.nombre){
 
             p1=pokemonSeleccionado;
             float vidd1 = p1.vidaRestante;
             float vidaBarraa1= (vidd1/p1.vida);
-            vida1.setProgress(p1.vidaRestante/p1.vida);
+            vida1.setProgress((double)p1.vidaRestante/p1.vida);
         }
         if (pokemonSeleccionado.nombre == p2.nombre){
             p2=pokemonSeleccionado;
@@ -399,7 +413,7 @@ public class HelloController {
         stage.setResizable(false);
         HelloControllerCombate v=fxmlLoader.getController();
         v.initialize(pokemonSeleccionado);
-        v.pokemonPasado();
+        v.pokemonPasado(this);
 
     }
 }

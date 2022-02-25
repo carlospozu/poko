@@ -5,7 +5,7 @@ import java.io.File;
 public class Pokemon {
     String nombre;
     Integer nivel;
-    Integer vida;
+    float vida;
     float vidaRestante;
     File foto;
     File sexo;
