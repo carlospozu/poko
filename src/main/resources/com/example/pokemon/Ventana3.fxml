@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #05C8E8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloControllerPokedex">
+   <children>
+      <ImageView fx:id="fondo" fitHeight="600.0" fitWidth="400.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+      <VBox prefHeight="600.0" prefWidth="400.0">
+         <children>
+            <HBox prefHeight="256.0" prefWidth="400.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <BorderPane prefHeight="206.0" prefWidth="400.0">
+                           <center>
+                              <ImageView fx:id="fotoPok" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                           </center>
+                           <left>
+                              <Button fx:id="favorito" mnemonicParsing="false" onMouseClicked="#elegirFav" text="Favorito" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                           </left>
+                        </BorderPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox maxWidth="400.0" minWidth="400.0" prefHeight="146.0" prefWidth="400.0">
+               <children>
+                  <Label fx:id="titulo" text="Label" textFill="#350257" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="desc" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" text="Label" textFill="#2f0251" wrapText="true">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox prefHeight="144.0" prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="pre" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="90.0" top="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="evolucion" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="120.0" top="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

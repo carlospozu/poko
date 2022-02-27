@@ -22,7 +22,7 @@ public class HelloControllerCombate {
     private HelloController HelloController;
 
 
-    Foto foto = new Foto(new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fondo.png"));
+    Foto foto = new Foto(new File("src\\main\\java\\com\\example\\pokemon\\fotos\\fondo.png"), new File("\"src\\\\main\\\\java\\\\com\\\\example\\\\pokemon\\\\fotos\\\\fondo.png\""));
     PokemonMalo aleatorio;
     PokemonMalo m1 = new PokemonMalo("Mewtwo", 80, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\mewtwo.png"));
     PokemonMalo m2 = new PokemonMalo("Dragonite", 73, 100, 100, new File("src\\main\\java\\com\\example\\pokemon\\fotos\\dragonite.png"));
